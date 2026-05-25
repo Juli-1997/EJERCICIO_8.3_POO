@@ -1,0 +1,33 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mypoo2.ejercicio83_act3;
+
+/**
+ *
+ * @author HP-255-G10
+ */
+public class esfera extends figura_geometrica {
+
+    private final double radio;
+
+    public esfera(double radio) {
+
+        this.radio = radio;
+    }
+
+    @Override
+    public double calcularVolumen() {
+
+        return (4 * Math.PI *
+               Math.pow(radio, 3)) / 3;
+    }
+
+    @Override
+    public double calcularSuperficie() {
+
+        return 4 * Math.PI *
+               Math.pow(radio, 2);
+    }
+}
