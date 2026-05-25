@@ -1,0 +1,82 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mypoo2.ejercicio83_act3;
+
+/**
+ *
+ * @author HP-255-G10
+ */
+import javax.swing.*;
+import java.awt.event.*;
+
+public class VentanaPrincipal extends JFrame
+implements ActionListener {
+
+    private final JButton btnEsfera;
+    private final JButton btnCilindro;
+    private final JButton btnPiramide;
+
+    public VentanaPrincipal() {
+
+        setTitle("Figuras Geométricas");
+
+        setSize(400,300);
+
+        setLayout(null);
+
+        btnEsfera =
+        new JButton("Esfera");
+
+        btnEsfera.setBounds(100,30,180,30);
+
+        btnCilindro =
+        new JButton("Cilindro");
+
+        btnCilindro.setBounds(100,90,180,30);
+
+        btnPiramide =
+        new JButton("Pirámide");
+
+        btnPiramide.setBounds(100,150,180,30);
+
+        add(btnEsfera);
+        add(btnCilindro);
+        add(btnPiramide);
+
+        btnEsfera.addActionListener(this);
+        btnCilindro.addActionListener(this);
+        btnPiramide.addActionListener(this);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if(e.getSource() == btnEsfera){
+
+            VentanaEsfera v =
+            new VentanaEsfera();
+
+            v.setVisible(true);
+        }
+
+        if(e.getSource() == btnCilindro){
+
+            VentanaCilindro v =
+            new VentanaCilindro();
+
+            v.setVisible(true);
+        }
+
+        if(e.getSource() == btnPiramide){
+
+            VentanaPiramide v =
+            new VentanaPiramide();
+
+            v.setVisible(true);
+        }
+    }
+}
