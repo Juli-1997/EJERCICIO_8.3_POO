@@ -1,0 +1,35 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mypoo2.ejercicio83_act3;
+
+/**
+ *
+ * @author HP-255-G10
+ */
+public class piramide extends figura_geometrica {
+
+    private final double base;
+    private final double altura;
+
+    public piramide(double base,
+                    double altura) {
+
+        this.base = base;
+        this.altura = altura;
+    }
+
+    @Override
+    public double calcularVolumen() {
+
+        return (base * base * altura) / 3;
+    }
+
+    @Override
+    public double calcularSuperficie() {
+
+        return (base * base) +
+               (2 * base * altura);
+    }
+}
