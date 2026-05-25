@@ -1,0 +1,117 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mypoo2.ejercicio83_act3;
+
+/**
+ *
+ * @author HP-255-G10
+ */
+import javax.swing.*;
+import java.awt.event.*;
+
+public class VentanaEsfera extends JFrame
+implements ActionListener {
+
+    private final JLabel lblRadio;
+
+    private final JTextField txtRadio;
+
+    private final JButton btnCalcular;
+    private final JButton btnLimpiar;
+
+    private final JLabel lblVolumen;
+    private final JLabel lblSuperficie;
+
+    public VentanaEsfera() {
+
+        setTitle("Esfera");
+
+        setSize(400,300);
+
+        setLayout(null);
+
+        lblRadio = new JLabel("Radio:");
+
+        lblRadio.setBounds(30,30,100,30);
+
+        txtRadio = new JTextField();
+
+        txtRadio.setBounds(120,30,150,30);
+
+        btnCalcular =
+        new JButton("Calcular");
+
+        btnCalcular.setBounds(30,90,120,30);
+
+        btnLimpiar =
+        new JButton("Limpiar");
+
+        btnLimpiar.setBounds(170,90,120,30);
+
+        lblVolumen =
+        new JLabel("Volumen:");
+
+        lblVolumen.setBounds(30,150,300,30);
+
+        lblSuperficie =
+        new JLabel("Superficie:");
+
+        lblSuperficie.setBounds(30,190,300,30);
+
+        add(lblRadio);
+        add(txtRadio);
+
+        add(btnCalcular);
+        add(btnLimpiar);
+
+        add(lblVolumen);
+        add(lblSuperficie);
+
+        btnCalcular.addActionListener(this);
+        btnLimpiar.addActionListener(this);
+
+        setLocationRelativeTo(null);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if(e.getSource() == btnCalcular){
+
+            try{
+
+                double radio =
+                Double.parseDouble(
+                txtRadio.getText());
+
+                esfera esfera =
+                new esfera(radio);
+
+                lblVolumen.setText(
+                "Volumen: " +
+                esfera.calcularVolumen());
+
+                lblSuperficie.setText(
+                "Superficie: " +
+                esfera.calcularSuperficie());
+
+            }catch(Exception ex){
+
+                JOptionPane.showMessageDialog(
+                null,
+                "Ingrese números válidos");
+            }
+        }
+
+        if(e.getSource() == btnLimpiar){
+
+            txtRadio.setText("");
+
+            lblVolumen.setText("Volumen:");
+
+            lblSuperficie.setText("Superficie:");
+        }
+    }
+}
