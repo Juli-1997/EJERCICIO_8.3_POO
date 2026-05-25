@@ -1,0 +1,134 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mypoo2.ejercicio83_act3;
+
+/**
+ *
+ * @author HP-255-G10
+ */
+import javax.swing.*;
+import java.awt.event.*;
+
+public class VentanaPiramide extends JFrame
+implements ActionListener {
+
+    private final JLabel lblBase;
+    private final JLabel lblAltura;
+
+    private final JTextField txtBase;
+    private final JTextField txtAltura;
+
+    private final JButton btnCalcular;
+    private final JButton btnLimpiar;
+
+    private final JLabel lblVolumen;
+    private final JLabel lblSuperficie;
+
+    public VentanaPiramide() {
+
+        setTitle("Pirámide");
+
+        setSize(400,350);
+
+        setLayout(null);
+
+        lblBase = new JLabel("Base:");
+
+        lblBase.setBounds(30,30,100,30);
+
+        txtBase = new JTextField();
+
+        txtBase.setBounds(120,30,150,30);
+
+        lblAltura = new JLabel("Altura:");
+
+        lblAltura.setBounds(30,80,100,30);
+
+        txtAltura = new JTextField();
+
+        txtAltura.setBounds(120,80,150,30);
+
+        btnCalcular =
+        new JButton("Calcular");
+
+        btnCalcular.setBounds(30,140,120,30);
+
+        btnLimpiar =
+        new JButton("Limpiar");
+
+        btnLimpiar.setBounds(170,140,120,30);
+
+        lblVolumen =
+        new JLabel("Volumen:");
+
+        lblVolumen.setBounds(30,210,300,30);
+
+        lblSuperficie =
+        new JLabel("Superficie:");
+
+        lblSuperficie.setBounds(30,250,300,30);
+
+        add(lblBase);
+        add(txtBase);
+
+        add(lblAltura);
+        add(txtAltura);
+
+        add(btnCalcular);
+        add(btnLimpiar);
+
+        add(lblVolumen);
+        add(lblSuperficie);
+
+        btnCalcular.addActionListener(this);
+        btnLimpiar.addActionListener(this);
+
+        setLocationRelativeTo(null);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if(e.getSource() == btnCalcular){
+
+            try{
+
+                double base =
+                Double.parseDouble(
+                txtBase.getText());
+
+                double altura =
+                Double.parseDouble(
+                txtAltura.getText());
+
+                piramide piramide =
+                new piramide(base, altura);
+
+                lblVolumen.setText(
+                "Volumen: " +
+                piramide.calcularVolumen());
+
+                lblSuperficie.setText(
+                "Superficie: " +
+                piramide.calcularSuperficie());
+
+            }catch(Exception ex){
+
+                JOptionPane.showMessageDialog(
+                null,
+                "Ingrese números válidos");
+            }
+        }
+
+        if(e.getSource() == btnLimpiar){
+
+            txtBase.setText("");
+            txtAltura.setText("");
+
+            lblVolumen.setText("Volumen:");
+            lblSuperficie.setText("Superficie:");
+        }
+    }
+}
